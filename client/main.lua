@@ -33,7 +33,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 		local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 		local closestPlayerPed = GetPlayerPed(closestPlayer)
-		if IsPedDeadOrDying(closestPlayerPed, 1) then
+		if IsPedDeadOrDying(closestPlayerPed, 1) and closestDistance < 1.3 then
 			if IsControlJustReleased(0, Keys['E']) then		
 				ESX.TriggerServerCallback('esx_firstaid:getLicense', function(license)
 					if license then
